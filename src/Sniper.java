@@ -3,4 +3,7 @@ public class Sniper extends Citizen{
         person.setLive(false);
     }
 
+    public Sniper(String id) {
+        super(id);
+    }
 }

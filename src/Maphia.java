@@ -5,9 +5,9 @@
      }
 
      @Override
-  public int vote() {
+  public boolean vote() {
 
    //TODO random choosing
-         return 0;
+         return true;
      }
  }

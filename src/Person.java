@@ -1,7 +1,7 @@
 public abstract class Person {
     private String id;
     private boolean live=true;
-    public abstract int vote();
+    public abstract boolean vote();
     private boolean talkAble=true;
     private String name;
 
