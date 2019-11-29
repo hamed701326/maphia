@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -5,34 +6,31 @@ public class Application {
     public static void main(String[] args) {
         int counterMaphia = 0;
         int counterCitizen = 0;
-        List<Person> peopleMaphia = new ArrayList<>();
+        Person[] peopleMaphia = new Person[5];
         for (int i = 0; i < 5; i++) {
-            peopleMaphia.add(new Maphia(i+1+"m"));
+            peopleMaphia[i] = (new Maphia(i + 1 + "m"));
         }
         //setting Godfather
-        GodFather godFather =(GodFather)peopleMaphia.get(2);
+        peopleMaphia[3] = new GodFather("godfather");
         //setting natasha
-        Natasha natasha = (Natasha)peopleMaphia.get(4);
-        List<Person> peopleCitizen = new ArrayList<>();
-        for (int i = 0; i < 15 ; i++) {
-            peopleCitizen.add(new Citizen(i+1+"c"));
+        peopleMaphia[2] = new Natasha("natasha");
+        Person[] peopleCitizen = new Citizen[15];
+        for (int i = 0; i < 15; i++) {
+            peopleCitizen[i] = (new Citizen(i + 1 + "c"));
         }
-        //setting Doctor
-        Doctor doctor=(Doctor) peopleCitizen.get(2);
-        //setting detective
-        Detective detective= (Detective) peopleCitizen.get(5);
-        //setting sniper
-        Sniper sniper = (Sniper) peopleCitizen.get(12);
         do {
             System.out.println("Now is time to sleep!");
             System.out.println("get up  Maphias!!!");
             System.out.println("maphia voting");
-            for (int i = 0; i < peopleMaphia.size(); i++) {
-
+            for (int i = 0; i <peopleCitizen.length ; i++) {
+                for (int j = 0; j < peopleMaphia.length; j++) {
+                    System.out.println(peopleMaphia[j].vote());
+                    peopleCitizen[i].setNumberVote(
+                            peopleMaphia[j].vote()?
+                                    peopleCitizen[i].getNumberVote()+1
+                                    :peopleCitizen[i].getNumberVote());
+                }
             }
-
-
-
 
             System.out.println("Now is morning");
 
@@ -41,6 +39,6 @@ public class Application {
             //maphia won!
                 (counterCitizen == counterMaphia) ||
                         //citizen won!
-            (counterMaphia == 0));
+                        (counterMaphia == 0));
     }
 }

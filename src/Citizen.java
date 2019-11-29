@@ -5,9 +5,9 @@ public class Citizen extends Person {
     }
 
     @Override
-    public int vote()
+    public boolean vote()
     {
-        return 1;
+        return true;
         //TODO random choosing
     }
 
