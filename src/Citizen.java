@@ -1,12 +1,14 @@
 public class Citizen extends Person {
-    public Citizen(int id) {
+    public Citizen(String id) {
         super(id);
         super.setName("Citizen");
     }
 
     @Override
-    public boolean vote(Person person){
-        return true;
+    public int vote()
+    {
+        return 1;
+        //TODO random choosing
     }
 
 }

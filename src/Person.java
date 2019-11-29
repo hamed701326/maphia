@@ -1,11 +1,11 @@
 public abstract class Person {
-    private int id;
+    private String id;
     private boolean live=true;
-    public abstract boolean vote(Person person);
+    public abstract int vote();
     private boolean talkAble=true;
     private String name;
 
-    public Person(int id) {
+    public Person(String id) {
         this.id = id;
     }
 
