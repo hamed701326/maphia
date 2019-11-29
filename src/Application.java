@@ -28,7 +28,7 @@ public class Application {
             System.out.println("get up  Maphias!!!");
             System.out.println("maphia voting");
             for (int i = 0; i < peopleMaphia.size(); i++) {
-
+                System.out.println(peopleMaphia.get(i).vote());
             }
 
 

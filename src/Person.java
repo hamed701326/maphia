@@ -5,6 +5,16 @@ public abstract class Person {
     private boolean talkAble=true;
     private String name;
 
+    public int getNumberVote() {
+        return numberVote;
+    }
+
+    public void setNumberVote(int numberVote) {
+        this.numberVote = numberVote;
+    }
+
+    private int numberVote=0;
+
     public Person(String id) {
         this.id = id;
     }
