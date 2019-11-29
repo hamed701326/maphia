@@ -2,6 +2,15 @@ public abstract class Person {
     private boolean live;
     public abstract boolean vote(Person person);
     private boolean talkAble;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public boolean isLive() {
         return live;
