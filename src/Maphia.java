@@ -1,6 +1,10 @@
  public class Maphia extends Person{
 
-  @Override
+     public Maphia(int id) {
+         super(id);
+     }
+
+     @Override
   public boolean vote(Person person) {
    return false;
   }

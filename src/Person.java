@@ -1,8 +1,13 @@
 public abstract class Person {
-    private boolean live;
+    private int id;
+    private boolean live=true;
     public abstract boolean vote(Person person);
-    private boolean talkAble;
+    private boolean talkAble=true;
     private String name;
+
+    public Person(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

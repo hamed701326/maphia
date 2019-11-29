@@ -1,5 +1,6 @@
 public class Citizen extends Person {
-    public Citizen() {
+    public Citizen(int id) {
+        super(id);
         super.setName("Citizen");
     }
 
