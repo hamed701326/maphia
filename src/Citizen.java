@@ -1,4 +1,8 @@
-package PACKAGE_NAME;
+public class Citizen extends Person {
 
-public class Citizen {
+
+    @Override
+    public boolean vote(Person person) {
+        return false;
+    }
 }
