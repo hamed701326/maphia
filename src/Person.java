@@ -1,4 +1,4 @@
-public abstract class Person {
+public abstract class Person implements Comparable<Person> {
     private String id;
     private boolean live=true;
     public abstract boolean vote();
@@ -37,5 +37,12 @@ public abstract class Person {
 
     public void setTalkAble(boolean talkAble) {
         this.talkAble = talkAble;
+    }
+    @Override
+    public int compareTo(Person o) {
+        //ascending order
+        return this.numberVote-o.getNumberVote();
+        //descending order
+        // return o.getNumberVote()-this.numberVote
     }
 }

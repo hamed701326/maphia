@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Application {
     public static void main(String[] args) {
-        int counterMaphia = 0;
-        int counterCitizen = 0;
+        int numberOfmaphia = 15;
+        int numberOfCitizen = 5;
         Person[] peopleMaphia = new Person[5];
         for (int i = 0; i < 5; i++) {
             peopleMaphia[i] = (new Maphia(i + 1 + "m"));
@@ -36,9 +36,11 @@ public class Application {
             }
             System.out.println("Now is morning");
             System.out.println("Voting Step");
+
             Person [] voters=concatenateArray(peopleCitizen,peopleMaphia);
             for(int i=0;i<voters.length;i++){
                 System.out.println("Person "+(i+1)+":");
+                //voting to person
                 for(Person person:voters){
 
                        voters[i].setNumberVote(
@@ -50,12 +52,18 @@ public class Application {
                 }
                 System.out.println(" Number Votes: "+voters[i].getNumberVote());
             }
+            // kill voters result
+            killChoice(voters);
+            // determine number of live people for each group:
+            numberOfCitizen=counterLive(peopleCitizen);
+            numberOfmaphia=counterLive(peopleMaphia);
 
         } while (
             //maphia won!
-                (counterCitizen == counterMaphia) ||
+                (numberOfCitizen == numberOfmaphia) ||
                         //citizen won!
-                        (counterMaphia == 0));
+                        (numberOfmaphia == 0));
+        //todo condition terminate game mus be change
     }
     public static Person [] concatenateArray(Person [] first,Person []second){
 
@@ -64,18 +72,21 @@ public class Application {
         Collections.addAll(total,second);
         return total.toArray(new Person[total.size()]);
     }
-    public void killChoice(Person[] people){
-        int max=people[0].getNumberVote();
-        Person person=people[0];
-        for (int i=1;i<people.length;i++){
-            if(max<people[i].getNumberVote()){
-                max=people[i].getNumberVote();
-                person=people[i];
-            }
-            else if(max==people[i].getNumberVote()){
-                //ToDo it must be vote again.
-            }
+    public static void killChoice(Person[] people){
+        Arrays.sort(people);
+        int l=people.length;
+        if (people[l-1]==people[l-2]){
+            // TODO: revoke voking
         }
+        Person person=people[l-1];// this person is going to die
+        person.setLive(false);// person died
+    }
+    public static int counterLive(Person[] people){
+        int counter=0;
+        for(Person person:people){
+            counter=person.isLive() ? counter+1:counter;
+        }
+        return counter;
     }
 
 }
