@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/maphia.iml" filepath="$PROJECT_DIR$/.idea/maphia.iml" />
-      <module fileurl="file://$PROJECT_DIR$/maphia.iml" filepath="$PROJECT_DIR$/maphia.iml" />
     </modules>
   </component>
 </project>
